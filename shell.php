@@ -18,6 +18,7 @@ if(!isset($_REQUEST['cmd'])):?>
     			color: yellowgreen;
     			min-height: 100vh;
     			font-family: courier;
+    			position: relative;
     		}
     		body > div.container > div.commandeRow{
     			padding-bottom:5px;
@@ -121,7 +122,8 @@ if(!isset($_REQUEST['cmd'])):?>
 					input.val(request);
 	  				$('div.commandeRow.active span.request').text(request);
 	  				body = $('body');
-	  				body.scrollTop(body.height()-body.scrollTop());
+	  				//body.scrollTop(body.height()-body.scrollTop())
+	  				body.scrollTop(body.height());
 				});
 
 				$('.ligne-commande').on('submit', function(e){
